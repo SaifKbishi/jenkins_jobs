@@ -1,0 +1,24 @@
+//archive_artifacts_w_fingerprint
+pipeline {
+    agent any
+
+    stages {
+        stage('archiving Artifact') {
+            steps {
+                sh "echo My build artifact content ${env.BUILD_NUMBER}, so I can consume its fingerprint > artifact.txt"
+            }
+        }
+    }
+    post {
+        success { // This block runs only if the pipeline status is SUCCESS or UNSTABLE
+            echo 'artifact was successful'
+            archiveArtifacts artifacts: 'artifact.txt', onlyIfSuccessful: true, fingerprint: true
+            // archiveArtifacts artifacts: 'target/app.war', fingerprint: true
+            // Use wildcards for multiple files, e.g., 'target/**/*.jar'
+        }
+        // You can also use 'always' to archive regardless of status (e.g., test results)
+        failure {
+            echo 'The build has failed.'
+        }
+    }
+}

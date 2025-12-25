@@ -1,0 +1,17 @@
+pipeline {
+    agent { label 'windows' }
+
+    stages {
+        stage('Write to Desktop') {
+            steps {
+                echo 'Write to Desktop'
+                bat 'echo Bobo3 >> C:/Users/SaifKabishi/Desktop/bobofile2.txt'
+            }
+        }
+    }
+    post {
+        success {echo 'artifact was successful'}
+        failure {echo 'The build has failed.'}
+        always {echo 'Pipeline finished.'}
+    }
+}

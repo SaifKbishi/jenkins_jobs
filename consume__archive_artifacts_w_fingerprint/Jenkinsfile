@@ -1,0 +1,12 @@
+//consume__archive_artifacts_w_fingerprint
+pipeline {
+  agent any
+  stages {
+    stage('Fetch from Job archive_artifacts_w_fingerprint') {
+      steps {
+        copyArtifacts(projectName: 'archive_artifacts_w_fingerprint', selector: lastSuccessful())
+        sh 'cat artifact.txt'
+      }
+    }
+   }
+}

@@ -1,0 +1,32 @@
+//print_free_disk_space/Jenkinsfile
+pipeline {
+    agent { label 'windows' }
+
+    stages {
+        stage('Fetch Free Disk Space') {
+            steps {
+                script{
+                    def command = "df -h / | awk 'NR==2 {print \$4}'"
+                    def process = command.execute()
+                    def output = process.text
+                    process.waitFor()
+                    
+                    echo "  free space:\n ${output.trim()}"
+                }
+            }
+        }
+        stage('Fetch Free Disk Space local PC of the agent') {
+            steps {
+                script{
+                    def command = "df -h / | awk 'NR==2 {print \$5}'"
+                    def process = command.execute()
+                    def output = process.text
+                    process.waitFor()
+                    
+                    echo "free space:\n ${output.trim()}"
+                }
+            }
+        }
+    }
+}
+ 

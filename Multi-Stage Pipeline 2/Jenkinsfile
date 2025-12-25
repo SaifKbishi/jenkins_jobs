@@ -1,0 +1,23 @@
+//Multi-Stage Pipeline 2/Jenkinsfile
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps { echo 'Building...' }
+        }
+        stage('Test') {
+            steps { echo 'Testing...' }
+        }
+        stage('Deploy') {
+            steps { echo 'Deploying...' }
+        }
+        stage('List Files') {
+            steps {
+                script{
+                    sh 'ls -la'
+                    sh 'date'
+                }
+            }
+        }
+    }
+}

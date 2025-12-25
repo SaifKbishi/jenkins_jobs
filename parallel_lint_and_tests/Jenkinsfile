@@ -1,0 +1,21 @@
+//parallel_lint_and_tests/Jenkinsfile
+pipeline {
+    agent any
+
+    stages {
+        stage('Parallel Tasks') {
+            parallel {
+                stage('Task A'){
+                    steps {
+                        echo 'Hello from task A'
+                    }   
+                }
+                stage('Task B'){
+                    steps{
+                        echo 'Hell from task B'
+                    }
+                }
+            }
+        }
+    }
+}
