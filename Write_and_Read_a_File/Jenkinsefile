@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage('Write and Read') {
+            steps {
+                writeFile file: 'devops.txt', text: 'Hello DevOps'
+                echo "File content: ${readFile('devops.txt')}"
+            }
+        }
+    }
+}
