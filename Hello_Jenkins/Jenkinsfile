@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+        stage('Set Description') {
+            steps {
+                script {
+                    currentBuild.rawBuild.project.description = "Exercise 1: Hello Jenkins\n Requirement:\n Create a pipeline that:\n Has one stage called Greeting.\n  Prints Hello Jenkins! in the console."
+                }
+            }
+        }
 
         stage('Greeting') {
             steps {
