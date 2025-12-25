@@ -1,0 +1,21 @@
+pipeline {
+    agent { label 'windows' }
+
+    stages {        
+        stage('Set Description') {
+            steps {
+                script {
+                    currentBuild.rawBuild.project.description = "move a file in windows desktop \necho 'Write to Desktop' \nbat 'echo Bobo3 >> C:/Users/SaifKabishi/Desktop/bobofile2.txt'"
+                }
+            }
+        }
+
+        stage('Copy a file in windows') {
+            steps {
+                echo 'Copy a file'
+                bat 'copy C:\\Users\\SaifKabishi\\Desktop\\bobofile2.txt C:\\Users\\SaifKabishi\\Documents\\Personal\\DevOps_Experts_course\\Class7\\'
+                echo 'The file was copied'
+            }
+        }
+    }
+}
