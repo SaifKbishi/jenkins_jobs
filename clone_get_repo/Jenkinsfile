@@ -1,0 +1,19 @@
+//clone_git_repo
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Replace with your GitHub repo URL
+                git branch: 'main', url: 'https://github.com:SaifKbishi/udemydevops.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'echo "Repository cloned successfully!"'
+            }
+        }
+    }
+}
