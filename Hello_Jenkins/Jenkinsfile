@@ -2,27 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Set Job Description') {
-            steps {
-                script {
-                    import jenkins.model.Jenkins
-
-                    def jobName = "Hello_Jenkins"
-                    def newDescription = "Exercise 1: Hello Jenkins\n Requirement:\n Create a pipeline that:\n Has one stage called Greeting.\n  Prints Hello Jenkins! in the console."
-
-                    def job = Jenkins.instance.getItemByFullName(jobName)
-
-                    if (job != null) {
-                        job.setDescription(newDescription)
-                        job.save() // Don't forget to save the changes
-                        println "Description for job '${jobName}' set to: '${newDescription}'"
-                    } else {
-                        println "Job '${jobName}' not found."
-                    }
-                    //job.setDescription("Exercise 1: Hello Jenkins\n Requirement:\n Create a pipeline that:\n Has one stage called Greeting.\n  Prints Hello Jenkins! in the console.")
-                }
-            }
-        }
         stage('Set Description') {
             steps {
                 script {
