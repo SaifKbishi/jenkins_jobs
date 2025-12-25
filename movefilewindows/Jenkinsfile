@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Move a file in wo=indows') {
+            steps {
+                echo 'Move a file'
+                bat 'move C:\\Users\\SaifKabishi\\Desktop\\bobofile3.txt C:\\Users\\SaifKabishi\\Documents\\Personal\\DevOps_Experts_course\\Class7\\'
+                echo 'The file was moved'
+            }
+        }
+    }
+}

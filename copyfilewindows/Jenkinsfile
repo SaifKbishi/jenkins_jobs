@@ -5,7 +5,7 @@ pipeline {
         stage('Set Description') {
             steps {
                 script {
-                    currentBuild.rawBuild.project.description = "move a file in windows desktop \necho 'Write to Desktop' \nbat 'echo Bobo3 >> C:/Users/SaifKabishi/Desktop/bobofile2.txt'"
+                    currentBuild.description = "move a file in windows desktop \necho 'Write to Desktop' \nbat 'echo Bobo3 >> C:/Users/SaifKabishi/Desktop/bobofile2.txt'"
                 }
             }
         }

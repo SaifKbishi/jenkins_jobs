@@ -1,0 +1,12 @@
+//test_env_BUILD_NUMBER/Jenkinsfile
+pipeline {
+    agent any
+
+    stages {
+        stage('print env.BUILD_NUMBER') {
+            steps {
+                echo "${env.BUILD_NUMBER}"
+            }
+        }
+    }
+}

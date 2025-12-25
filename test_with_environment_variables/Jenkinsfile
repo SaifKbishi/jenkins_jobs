@@ -1,0 +1,51 @@
+//test_with_environment_variables
+pipeline {
+    agent any
+    
+    environment {
+        APP_NAME = 'MyApp'
+        APP_VERSION = '1.0.0'
+        DEPLOY_ENV = 'production'
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    // Print the environment variables
+                    echo "Building ${APP_NAME} version ${APP_VERSION} BUILD_NUMBER= ${env.BUILD_NUMBER}"
+                }
+                // Build steps, e.g., run a shell or other commands
+                //sh 'echo Building...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    // Use the environment variable in test commands
+                    echo "Testing ${APP_NAME} in ${DEPLOY_ENV} environment"
+                }
+                // Sample test command
+                //sh 'echo Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    // Deployment logic, leveraging environment variables
+                    echo "Deploying ${APP_NAME} to ${DEPLOY_ENV}"
+                }
+                // Sample deployment command
+                //sh 'echo Deploying...'
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo 'Pipeline finished'
+        }
+    }
+}

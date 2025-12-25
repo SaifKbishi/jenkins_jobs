@@ -1,0 +1,15 @@
+//Hello_Pipeline_w_env/Jenkinsfile
+pipeline {
+  agent any
+  environment {
+        BUILD_NUMBER = '1.0.0'
+    }
+  stages {
+    stage('Hello') {
+      steps {
+        echo "Hello, Jenkins! Build #${env.BUILD_NUMBER}"
+        sh 'echo "Running on: $(uname -a)"'
+      }
+    }
+  }
+}

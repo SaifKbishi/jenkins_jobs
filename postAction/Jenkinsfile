@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Actions statuses') {
+            steps {
+                echo "Actions statuses"
+            }
+        }
+    }
+    post {
+        success {echo 'artifact was successful'}
+        failure {echo 'The build has failed.'}
+        always {echo 'Pipeline finished.'}
+    }
+}
