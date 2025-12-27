@@ -16,7 +16,7 @@ Clone, import, and run these jobs on your own Jenkins instance for learning, dem
 │  └─ Jenkinsfile\
 ├─ job-0X/\
 │  └─ Jenkinsfile\
-└─ README.md\
+└─ README.md
 
 
 
