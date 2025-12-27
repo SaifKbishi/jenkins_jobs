@@ -21,6 +21,6 @@ Clone, import, and run these jobs on your own Jenkins instance for learning, dem
 
 
 ```bash
-git clone https://github.com/SaifKbishi/jenkines_jobs.git
+git clone https://github.com/SaifKbishi/jenkins_jobs.git
 cd jenkines_jobs
 ```
