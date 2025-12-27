@@ -8,15 +8,15 @@ Clone, import, and run these jobs on your own Jenkins instance for learning, dem
 
 ## 🗂 Repository Structure
 .
-├─ job-01/
-│  └─ Jenkinsfile
-├─ job-02/
-│  └─ Jenkinsfile
-├─ job-03/
-│  └─ Jenkinsfile
-├─ job-0X/
-│  └─ Jenkinsfile
-└─ README.md
+├─ job-01/\
+│  └─ Jenkinsfile\
+├─ job-02/\
+│  └─ Jenkinsfile\
+├─ job-03/\
+│  └─ Jenkinsfile\
+├─ job-0X/\
+│  └─ Jenkinsfile\
+└─ README.md\
 
 
 
